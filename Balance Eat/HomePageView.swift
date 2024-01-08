@@ -1,0 +1,65 @@
+//
+//  HomePageView.swift
+//  Balance Eat
+//
+//  Created by 123 on 08.01.24.
+//
+
+import SwiftUI
+
+struct HomePageView: View {
+    
+    var body: some View {
+        ZStack {
+            Color(red: 237/255, green: 237/255, blue: 237/255).edgesIgnoringSafeArea(.all)
+            NavigationStack {
+                VStack {
+                    Text("AAA")
+                        .toolbarBackground(.visible, for: .navigationBar)
+//                        .navigationBarTitleDisplayMode(.inline)
+                        
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarLeading) {
+                                HStack {
+                                    VStack(alignment: .leading)
+                                    {
+                                        // Заголовок Н6
+                                        Text("Воскресение, 31 дек.")
+                                            .font(Font.custom("Lato", size: 13))
+                                            .foregroundColor(Color(red: 0.52, green: 0.52, blue: 0.52))
+                                        
+                                        Text("Сводка")
+                                            .font(
+                                                Font.custom("Lato", size: 28)
+                                                    .weight(.semibold)
+                                            )
+                                            .foregroundColor(Color(red: 0.09,green: 0.09, blue: 0.09))
+                                    }
+                                    .padding(.leading, 12)
+                                }
+                                .frame(maxWidth: .infinity)
+                                .background(.white)
+                            }
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Image(systemName: "person.crop.circle")
+                                    .frame(width: 36, height: 36)
+                                    .background(Color(red: 0.98, green: 0.97, blue: 0.97))
+                            }
+                        }
+                    
+                        
+
+                }
+            } /*.navigationTitle("Сводка").ignoresSafeArea()*/
+            
+        }
+    }
+}
+
+#Preview {
+    
+    NavigationStack {
+        HomePageView()
+    }
+    
+}

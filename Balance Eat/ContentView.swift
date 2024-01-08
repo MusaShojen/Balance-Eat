@@ -2,6 +2,7 @@
 //  ContentView.swift
 //  Balance Eat
 //
+
 //  Created by Муса Шогенов on 7.01.2024.
 //
 
