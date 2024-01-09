@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C20F65012B4D24F00016D246 /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20F65002B4D24F00016D246 /* FoodModel.swift */; };
+		C20F65032B4D8F0D0016D246 /* CategoriesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20F65022B4D8F0D0016D246 /* CategoriesModel.swift */; };
+		C28613AE2B4C80D00096478C /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28613AD2B4C80D00096478C /* Networking.swift */; };
 		C2D6FC992B4B2C2F000398F4 /* Balance_EatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6FC982B4B2C2F000398F4 /* Balance_EatApp.swift */; };
 		C2D6FC9B2B4B2C2F000398F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6FC9A2B4B2C2F000398F4 /* ContentView.swift */; };
 		C2D6FC9D2B4B2C32000398F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2D6FC9C2B4B2C32000398F4 /* Assets.xcassets */; };
@@ -14,6 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C20F65002B4D24F00016D246 /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
+		C20F65022B4D8F0D0016D246 /* CategoriesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesModel.swift; sourceTree = "<group>"; };
+		C28613AD2B4C80D00096478C /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		C2D6FC952B4B2C2F000398F4 /* Balance Eat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Balance Eat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D6FC982B4B2C2F000398F4 /* Balance_EatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance_EatApp.swift; sourceTree = "<group>"; };
 		C2D6FC9A2B4B2C2F000398F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -55,6 +61,9 @@
 				C2D6FC9A2B4B2C2F000398F4 /* ContentView.swift */,
 				C2D6FC9C2B4B2C32000398F4 /* Assets.xcassets */,
 				C2D6FC9E2B4B2C32000398F4 /* Preview Content */,
+				C28613AD2B4C80D00096478C /* Networking.swift */,
+				C20F65002B4D24F00016D246 /* FoodModel.swift */,
+				C20F65022B4D8F0D0016D246 /* CategoriesModel.swift */,
 			);
 			path = "Balance Eat";
 			sourceTree = "<group>";
@@ -137,8 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C20F65032B4D8F0D0016D246 /* CategoriesModel.swift in Sources */,
+				C28613AE2B4C80D00096478C /* Networking.swift in Sources */,
 				C2D6FC9B2B4B2C2F000398F4 /* ContentView.swift in Sources */,
 				C2D6FC992B4B2C2F000398F4 /* Balance_EatApp.swift in Sources */,
+				C20F65012B4D24F00016D246 /* FoodModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +287,7 @@
 				DEVELOPMENT_TEAM = P63W4G74K2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Balance-Eat-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -304,6 +317,7 @@
 				DEVELOPMENT_TEAM = P63W4G74K2;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Balance-Eat-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
