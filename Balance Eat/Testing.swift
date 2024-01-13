@@ -12,14 +12,18 @@ struct Testing: View {
         ScrollView {
             ForEach(0..<40) { int in
                 Text("AAA")
-                    .frame(maxWidth: /*@START_MENU_TOKEN@*/.infinity/*@END_MENU_TOKEN@*/)
+                    .frame(maxWidth: .infinity)
             }
         }
-        .background(Color (red: 237/255, green: 237/255, blue: 237/255))
+        .background(Collors)
+        .onAppear() {
+            aaa()
+        }
+          
         .overlay {
             ZStack {
                 Color.white
-                    .frame(height: 100)
+                    .frame(height: Colors.shared.Colorr)
                     .background(.ultraThinMaterial)
                     .opacity(1)
                     .blur(radius: 0.5)
