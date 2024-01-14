@@ -14,7 +14,8 @@ struct HomePageView: View {
             Color(red: 237/255, green: 237/255, blue: 237/255).edgesIgnoringSafeArea(.all)
             NavigationStack {
                 VStack {
-                    Text("AAA")
+                    SummaryView(progress: 0.7)
+                        .padding(.horizontal, 16)
                         .toolbarBackground(.visible, for: .navigationBar)
 //                        .navigationBarTitleDisplayMode(.inline)
                         

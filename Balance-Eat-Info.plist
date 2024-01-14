@@ -4,13 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
-<<<<<<< HEAD
-		<string>Lato-Black</string>
-		<string>Lato-Regular</string>
-=======
-		<string>Lato/Lato-Black.ttf</string>
-		<string>Lato/Lato-Regular.ttf</string>
->>>>>>> c5b420182d20d4245b942ad49e42b171e3bf2f74
+		<string></string>
 	</array>
 </dict>
 </plist>
