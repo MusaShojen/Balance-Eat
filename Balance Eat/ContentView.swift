@@ -2,6 +2,7 @@
 //  ContentView.swift
 //  Balance Eat
 //
+
 //  Created by Муса Шогенов on 7.01.2024.
 //
 
@@ -13,7 +14,8 @@ struct ContentView: View {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text("Hello, Balance eat")
+            
         }
         .padding()
     }
