@@ -21,16 +21,16 @@ struct SummaryView: View {
                     
                     VStack (alignment: .leading ,spacing: 5){
                         
-                        Text("Актуальный вес")
-                            .font(Font.custom("Lato-Regular", size: 24))
+                        Text("Current weight")
+                            .font(Fonts.regular.size(24))
                             .foregroundColor(Color(red: 0.09, green: 0.09, blue: 0.09))
                             .frame(height: 20)
                         
                         
-                        Text("74,4 кг")
+                        Text("74,4 kg")
                             .font(
-                                Font.custom("Lato-Black", size: 32)
-                                    .weight(.black)
+                                Fonts.black.size(32)
+                                 
                             )
                             .foregroundColor(Color(red: 0.09, green: 0.09, blue: 0.09))
                             .frame(height: 32)
@@ -40,28 +40,28 @@ struct SummaryView: View {
                     HStack(spacing: 35) {
                         VStack(alignment: .leading, spacing: 5){
                             
-                            Text("Старт")
-                                .font(Font.custom("Lato-Regular", size: 20))
+                            Text("Start")
+                                .font(Fonts.regular.size(20))
                                 .foregroundColor(.black)
                                 .frame(height: 18)
                             
                             
-                            Text("75 кг")
-                                .font(Font.custom("Lato", size: 20))
+                            Text("75 kg")
+                                .font(Fonts.regular.size(20))
                                 .foregroundColor(Color(red: 0.34, green: 0.34, blue: 0.34))
                                 .frame(height: 18)
                             
                         }
                         VStack(alignment: .leading, spacing: 5){
                             // Заголовок Н4
-                            Text("Цель")
-                                .font(Font.custom("Lato-Regular", size: 20))
+                            Text("Goal")
+                                .font(Fonts.regular.size(20))
                                 .foregroundColor(.black)
                                 .frame(height: 18)
                             
                             // Заголовок Н4
-                            Text("70 кг")
-                                .font(Font.custom("Lato", size: 20))
+                            Text("70 kg")
+                                .font(Fonts.regular.size(20))
                                 .foregroundColor(Color(red: 0.34, green: 0.34, blue: 0.34))
                                 .frame(height: 18)
                             
@@ -74,7 +74,7 @@ struct SummaryView: View {
                 Spacer()
                 
                 
-                ActivityRing(progress: 0.5, lineWidth: 30)
+                Ring(lineWidth: 30, backgroundColor: Color.background, foregroundColor: Color.blue, percent: 50)
                     .frame(width: 130, height: 130)
                 
                 
@@ -92,8 +92,8 @@ struct SummaryView: View {
                     VStack(spacing: 1){
                         
                         
-                        Text("70кг")
-                          .font(Font.custom("Lato-Regular", size: 10))
+                        Text("70kg")
+                          .font(Fonts.regular.size(10))
                           .multilineTextAlignment(.trailing)
                           .foregroundColor(Color(red: 0.34, green: 0.34, blue: 0.34))
                           .frame(height: 12)
@@ -107,8 +107,8 @@ struct SummaryView: View {
                             
                         
                         // ЗАголовок Н5
-                        Text("пн")
-                          .font(Font.custom("Lato", size: 16))
+                        Text("mon")
+                          .font(Fonts.regular.size(16))
                           .foregroundColor(Color(red: 0.34, green: 0.34, blue: 0.34))
                           .frame(height: 16)
                         

@@ -15,15 +15,15 @@ struct Testing: View {
                     .frame(maxWidth: .infinity)
             }
         }
-        .background(Collors)
+        .background(Color.background)
         .onAppear() {
-            aaa()
+           
         }
           
         .overlay {
             ZStack {
                 Color.white
-                    .frame(height: Colors.shared.Colorr)
+                    .frame(height: 200)
                     .background(.ultraThinMaterial)
                     .opacity(1)
                     .blur(radius: 0.5)
