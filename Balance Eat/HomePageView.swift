@@ -9,15 +9,19 @@ import SwiftUI
 
 struct HomePageView: View {
     
+    
+    
     var body: some View {
-        ZStack {
-            Color(red: 237/255, green: 237/255, blue: 237/255).edgesIgnoringSafeArea(.all)
-            
-            ScrollView{
-                NavigationStack {
+        NavigationStack {
+            ZStack {
+                Color(red: 237/255, green: 237/255, blue: 237/255).edgesIgnoringSafeArea(.all)
+                
+                ScrollView{
+                    
                     VStack {
                         SummaryView(progress: 0.7)
                             .padding(.horizontal, 16)
+                            .padding(.top, 16)
                             .toolbarBackground(.visible, for: .navigationBar)
                         
                         
@@ -25,7 +29,6 @@ struct HomePageView: View {
                         
                         TodayPlanView().padding(.horizontal, 16)
                         
-                        //                        .navigationBarTitleDisplayMode(.inline)
                         
                             .toolbar {
                                 ToolbarItem(placement: .navigationBarLeading) {
@@ -34,31 +37,39 @@ struct HomePageView: View {
                                         {
                                             // Заголовок Н6
                                             Text("Sunday, 31 dec.")
+                                            
                                                 .font(Font.custom("Lato", size: 13))
                                                 .foregroundColor(Color(red: 0.52, green: 0.52, blue: 0.52))
                                             
                                             Text("Summary")
+                                            
                                                 .font(Fonts.regular.size(28)
                                                     .weight(.semibold)
                                                 )
                                                 .foregroundColor(Color(red: 0.09,green: 0.09, blue: 0.09))
                                         }
+                                        
                                         .padding(.leading, 12)
                                     }
                                     .frame(maxWidth: .infinity)
-                                    .background(.white)
+                                    .background(.clear)
+                                    .padding(.bottom, 10)
                                 }
                                 ToolbarItem(placement: .navigationBarTrailing) {
                                     Image(systemName: "person.crop.circle")
+                                        .resizable()
+                                        .scaledToFit()
                                         .frame(width: 36, height: 36)
-                                        .background(Color(red: 0.98, green: 0.97, blue: 0.97))
+                                        .background(.clear)
+                                    
                                 }
                             }
                         
                         
                         
                     }
-                } 
+                }
+                .safeAreaPadding(.bottom,86)
             }/*.navigationTitle("Сводка").ignoresSafeArea()*/
             
         }
