@@ -19,11 +19,14 @@
 		C21A011A2B570C2D00A825BC /* MultipleRings.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21A01192B570C2D00A825BC /* MultipleRings.swift */; };
 		C21A011C2B570E3200A825BC /* EnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21A011B2B570E3200A825BC /* EnergyView.swift */; };
 		C21A011E2B570F4700A825BC /* NutritionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21A011D2B570F4700A825BC /* NutritionCellView.swift */; };
+		C229A76F2B5B20A2007AB370 /* WeightPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C229A76E2B5B20A2007AB370 /* WeightPickerView.swift */; };
 		C27D010C2B591BFE007E9868 /* TodayPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D010B2B591BFD007E9868 /* TodayPlanView.swift */; };
 		C27DCDB42B5811C8004126DE /* DisclosureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DCDB32B5811C7004126DE /* DisclosureCell.swift */; };
 		C27DCDB62B581590004126DE /* Meals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DCDB52B581590004126DE /* Meals.swift */; };
 		C28D27762B541B78002CE029 /* ActivityRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D27742B541B77002CE029 /* ActivityRing.swift */; };
 		C28D27772B541B78002CE029 /* CurrentWeightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D27752B541B77002CE029 /* CurrentWeightView.swift */; };
+		C2BD89CA2B5AEA1B00379874 /* CircleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BD89C92B5AEA1B00379874 /* CircleButton.swift */; };
+		C2BD89CC2B5AF73100379874 /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2BD89CB2B5AF73100379874 /* CustomSlider.swift */; };
 		C2D6FC992B4B2C2F000398F4 /* Balance_EatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6FC982B4B2C2F000398F4 /* Balance_EatApp.swift */; };
 		C2D6FC9B2B4B2C2F000398F4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D6FC9A2B4B2C2F000398F4 /* ContentView.swift */; };
 		C2D6FC9D2B4B2C32000398F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C2D6FC9C2B4B2C32000398F4 /* Assets.xcassets */; };
@@ -44,11 +47,14 @@
 		C21A01192B570C2D00A825BC /* MultipleRings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleRings.swift; sourceTree = "<group>"; };
 		C21A011B2B570E3200A825BC /* EnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyView.swift; sourceTree = "<group>"; };
 		C21A011D2B570F4700A825BC /* NutritionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionCellView.swift; sourceTree = "<group>"; };
+		C229A76E2B5B20A2007AB370 /* WeightPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightPickerView.swift; sourceTree = "<group>"; };
 		C27D010B2B591BFD007E9868 /* TodayPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPlanView.swift; sourceTree = "<group>"; };
 		C27DCDB32B5811C7004126DE /* DisclosureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureCell.swift; sourceTree = "<group>"; };
 		C27DCDB52B581590004126DE /* Meals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meals.swift; sourceTree = "<group>"; };
 		C28D27742B541B77002CE029 /* ActivityRing.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActivityRing.swift; sourceTree = "<group>"; };
 		C28D27752B541B77002CE029 /* CurrentWeightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentWeightView.swift; sourceTree = "<group>"; };
+		C2BD89C92B5AEA1B00379874 /* CircleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleButton.swift; sourceTree = "<group>"; };
+		C2BD89CB2B5AF73100379874 /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 		C2D6FC952B4B2C2F000398F4 /* Balance Eat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Balance Eat.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2D6FC982B4B2C2F000398F4 /* Balance_EatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance_EatApp.swift; sourceTree = "<group>"; };
 		C2D6FC9A2B4B2C2F000398F4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +92,7 @@
 		C2D6FC972B4B2C2F000398F4 /* Balance Eat */ = {
 			isa = PBXGroup;
 			children = (
+				C229A76E2B5B20A2007AB370 /* WeightPickerView.swift */,
 				C27DCDB52B581590004126DE /* Meals.swift */,
 				C27DCDB32B5811C7004126DE /* DisclosureCell.swift */,
 				C21A011D2B570F4700A825BC /* NutritionCellView.swift */,
@@ -108,6 +115,8 @@
 				C21A01192B570C2D00A825BC /* MultipleRings.swift */,
 				C21A011B2B570E3200A825BC /* EnergyView.swift */,
 				C27D010B2B591BFD007E9868 /* TodayPlanView.swift */,
+				C2BD89C92B5AEA1B00379874 /* CircleButton.swift */,
+				C2BD89CB2B5AF73100379874 /* CustomSlider.swift */,
 			);
 			path = "Balance Eat";
 			sourceTree = "<group>";
@@ -195,6 +204,7 @@
 				C2D6FC9B2B4B2C2F000398F4 /* ContentView.swift in Sources */,
 				C21A011A2B570C2D00A825BC /* MultipleRings.swift in Sources */,
 				9DAD73BD2B4C66A600DC6EE1 /* HomePageView.swift in Sources */,
+				C2BD89CA2B5AEA1B00379874 /* CircleButton.swift in Sources */,
 				C28D27762B541B78002CE029 /* ActivityRing.swift in Sources */,
 				C21A01162B56F40E00A825BC /* RingShape.swift in Sources */,
 				C21A011C2B570E3200A825BC /* EnergyView.swift in Sources */,
@@ -202,12 +212,14 @@
 				9DF4AC712B4C79F5007853F8 /* Testing.swift in Sources */,
 				C2D6FC992B4B2C2F000398F4 /* Balance_EatApp.swift in Sources */,
 				9DF4AC752B4C87A7007853F8 /* BodyTest.swift in Sources */,
+				C2BD89CC2B5AF73100379874 /* CustomSlider.swift in Sources */,
 				C21A011E2B570F4700A825BC /* NutritionCellView.swift in Sources */,
 				C27DCDB62B581590004126DE /* Meals.swift in Sources */,
 				C27D010C2B591BFE007E9868 /* TodayPlanView.swift in Sources */,
 				9D2AC1462B531BD800C3DFFA /* Weight.swift in Sources */,
 				9DF4AC7A2B4C9745007853F8 /* Constants.swift in Sources */,
 				C21A01182B57098E00A825BC /* Ring.swift in Sources */,
+				C229A76F2B5B20A2007AB370 /* WeightPickerView.swift in Sources */,
 				C28D27772B541B78002CE029 /* CurrentWeightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

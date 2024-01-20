@@ -18,6 +18,7 @@ struct TodayPlanView: View {
                 .padding(.leading, 16)
                 .padding(.top, 16)
             Meals()
+                .padding(.bottom, 18)
         }
         
         .background(.white)

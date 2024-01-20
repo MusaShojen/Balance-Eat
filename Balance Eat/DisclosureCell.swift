@@ -11,7 +11,7 @@ import SwiftUI
 struct DisclosureCell: View {
     
     @State private var selectedProducts: Set<String> = []
-    @State var exp: Bool = true
+    @State var exp: Bool = false
     @State var isAllSelected: Bool = false
     
     var allProducts: Set<String> {
@@ -58,6 +58,7 @@ struct DisclosureCell: View {
                 
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+            .padding(.top, 15)
             .padding(.leading, 33)
         } label: {
             HStack(spacing: 6){
