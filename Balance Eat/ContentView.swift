@@ -43,7 +43,8 @@ struct ContentView: View {
             })
             
             Spacer()
-            HStack(spacing: 47){
+            HStack(spacing: 0){
+                Spacer()
                 
                 Button {
                     selected = "1"
@@ -55,8 +56,10 @@ struct ContentView: View {
                         .scaledToFit()
                         .foregroundStyle(selected == "1" ? .blue : .gray)
                         .frame(width: 28, height: 28, alignment: .center)
+                    
                 }
            
+                Spacer()
                 
                 Button {
                     selected = "2"
@@ -69,7 +72,7 @@ struct ContentView: View {
                         .foregroundStyle(selected == "2" ? .blue : .gray)
                         .frame(width: 28, height: 28, alignment: .center)
                 }
-           
+                Spacer()
                 
                 Button {
                     
@@ -107,6 +110,8 @@ struct ContentView: View {
                     }
                 )
                 
+                Spacer()
+                
                 Button {
                     
                     selected = "3"
@@ -120,6 +125,7 @@ struct ContentView: View {
                         .frame(width: 28, height: 28, alignment: .center)
                 }
                 
+                Spacer()
                 
                 Button {
                     selected = "4"
@@ -133,17 +139,21 @@ struct ContentView: View {
                         .frame(width: 28, height: 28, alignment: .center)
                 }
             
+                Spacer()
                 
             }
             .sheet(isPresented: $isSheetVisible,  content: {
                 WeightPickerView(isSheetVisible: $isSheetVisible)
             })
-            .padding(.top, 20)
-        //    .padding(.vertical, 20)
-            .padding(.horizontal, 30)
-    
+          
+        //    .padding(.horizontal, 32)
+            
             .frame(maxWidth: .infinity)
-            .background(Color.white)
+            .frame(height: 87)
+            .background(RoundedRectangle(cornerRadius: 10).fill(.white))
+         
+           
+            .offset(y: 32)
              
             
            

@@ -20,6 +20,7 @@
 		C21A011C2B570E3200A825BC /* EnergyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21A011B2B570E3200A825BC /* EnergyView.swift */; };
 		C21A011E2B570F4700A825BC /* NutritionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21A011D2B570F4700A825BC /* NutritionCellView.swift */; };
 		C229A76F2B5B20A2007AB370 /* WeightPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C229A76E2B5B20A2007AB370 /* WeightPickerView.swift */; };
+		C27195342B5C1D010016B0BD /* HomePageView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27195332B5C1D010016B0BD /* HomePageView2.swift */; };
 		C27D010C2B591BFE007E9868 /* TodayPlanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27D010B2B591BFD007E9868 /* TodayPlanView.swift */; };
 		C27DCDB42B5811C8004126DE /* DisclosureCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DCDB32B5811C7004126DE /* DisclosureCell.swift */; };
 		C27DCDB62B581590004126DE /* Meals.swift in Sources */ = {isa = PBXBuildFile; fileRef = C27DCDB52B581590004126DE /* Meals.swift */; };
@@ -48,6 +49,7 @@
 		C21A011B2B570E3200A825BC /* EnergyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyView.swift; sourceTree = "<group>"; };
 		C21A011D2B570F4700A825BC /* NutritionCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionCellView.swift; sourceTree = "<group>"; };
 		C229A76E2B5B20A2007AB370 /* WeightPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightPickerView.swift; sourceTree = "<group>"; };
+		C27195332B5C1D010016B0BD /* HomePageView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView2.swift; sourceTree = "<group>"; };
 		C27D010B2B591BFD007E9868 /* TodayPlanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayPlanView.swift; sourceTree = "<group>"; };
 		C27DCDB32B5811C7004126DE /* DisclosureCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisclosureCell.swift; sourceTree = "<group>"; };
 		C27DCDB52B581590004126DE /* Meals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meals.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				C21A011D2B570F4700A825BC /* NutritionCellView.swift */,
 				9DF4AC782B4C92A1007853F8 /* Balance-Eat-Info.plist */,
 				9DAD73BC2B4C66A600DC6EE1 /* HomePageView.swift */,
+				C27195332B5C1D010016B0BD /* HomePageView2.swift */,
 				C2D6FC982B4B2C2F000398F4 /* Balance_EatApp.swift */,
 				C2D6FC9A2B4B2C2F000398F4 /* ContentView.swift */,
 				C2D6FC9C2B4B2C32000398F4 /* Assets.xcassets */,
@@ -220,6 +223,7 @@
 				9DF4AC7A2B4C9745007853F8 /* Constants.swift in Sources */,
 				C21A01182B57098E00A825BC /* Ring.swift in Sources */,
 				C229A76F2B5B20A2007AB370 /* WeightPickerView.swift in Sources */,
+				C27195342B5C1D010016B0BD /* HomePageView2.swift in Sources */,
 				C28D27772B541B78002CE029 /* CurrentWeightView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
