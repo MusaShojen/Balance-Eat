@@ -123,6 +123,7 @@ struct HomePageView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: isScrolling ? 30 : 36, height: isScrolling ? 30 : 36)
+                                .foregroundStyle(.gray)
                                 .background(.clear)
                         }
                         .offset(y: -40)

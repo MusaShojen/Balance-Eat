@@ -6,10 +6,29 @@
 //
 
 import SwiftUI
+import AudioToolbox
+
 
 struct WeightPickerView: View {
-    @State var offset: CGFloat = 0
+    @State var offset: CGFloat = 200
     @Binding var isSheetVisible : Bool
+     var weight: String {
+        
+        
+        let startWeight = 74.0
+        
+       
+        
+        let progress = offset / 20
+        print (offset)
+        let result = startWeight + (Double(progress) * 0.1)
+        let roundedResult = (result * 10).rounded() / 10
+    
+        
+        return String(format: "%.1f", roundedResult)
+        
+    }
+    
     var body: some View {
         
       
@@ -61,7 +80,12 @@ struct WeightPickerView: View {
                   .padding(.bottom, 55)
                 
                 HStack(spacing: 0) {
-                    Text(getWeeight())
+                    Text(weight)
+                        .onChange(of: weight, { oldValue, newValue in
+                            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+                            AudioServicesPlayAlertSound(1157)
+
+                        })
                       .font(
                         Fonts.black.size(64)
                           
@@ -77,12 +101,12 @@ struct WeightPickerView: View {
                     
                
                 } 
-                .onAppear{
-                    
-                    if offset == 0 {
-                        offset = 200
-                    }
-                }
+//                .onAppear{
+//                    
+//                    if offset == 0 {
+//                        offset = 200
+//                    }
+//                }
                 .padding(.horizontal, 15)
                 
                 CustomSlider(pickerCount: 3, offset: $offset) {
@@ -156,7 +180,8 @@ struct WeightPickerView: View {
             
         }
     }
-    
+   
+   
     func getWeeight()-> String {
         
         let startWeight = 74.0
@@ -167,6 +192,7 @@ struct WeightPickerView: View {
         print (offset)
         let result = startWeight + (Double(progress) * 0.1)
         let roundedResult = (result * 10).rounded() / 10
+    
         
         return String(format: "%.1f", roundedResult)
     }

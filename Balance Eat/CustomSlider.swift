@@ -7,6 +7,7 @@
 
 import SwiftUI
 import UIKit
+import AudioToolbox
 
 struct CustomSlider<Content: View>: UIViewRepresentable {
     func makeCoordinator() -> Coordinator {
@@ -60,12 +61,16 @@ struct CustomSlider<Content: View>: UIViewRepresentable {
         
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
             parent.offset = scrollView.contentOffset.x
+            
         }
         func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
             let offset = scrollView.contentOffset.x
             let value = (offset/20).rounded(.toNearestOrAwayFromZero)
             
             scrollView.setContentOffset(CGPoint(x: value * 20, y: 0), animated: false)
+            
+            AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+            AudioServicesPlayAlertSound(1157)
         }
         
         func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
@@ -74,6 +79,9 @@ struct CustomSlider<Content: View>: UIViewRepresentable {
                 let value = (offset/20).rounded(.toNearestOrAwayFromZero)
                 
                 scrollView.setContentOffset(CGPoint(x: value * 20, y: 0), animated: false)
+                
+                AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
+                AudioServicesPlayAlertSound(1157)
             }
         }
     }
