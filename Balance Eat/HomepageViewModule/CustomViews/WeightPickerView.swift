@@ -11,29 +11,26 @@ import AudioToolbox
 
 struct WeightPickerView: View {
     @State var offset: CGFloat = 200
+    @ObservedObject var planProfile : PlanProfile
     @Binding var isSheetVisible : Bool
+    @State var currentWeight: Double = 0.0
      var weight: String {
         
         
-        let startWeight = 74.0
+         let startWeight = planProfile.shownCurrentWeight - 1
         
        
         
         let progress = offset / 20
-        print (offset)
         let result = startWeight + (Double(progress) * 0.1)
         let roundedResult = (result * 10).rounded() / 10
-    
-        
-        return String(format: "%.1f", roundedResult)
+       
+        return String(roundedResult)
         
     }
     
     var body: some View {
         
-      
-         
-          
         ZStack(alignment: .top){
             Color.blue.ignoresSafeArea()
             
@@ -53,24 +50,18 @@ struct WeightPickerView: View {
                 Spacer()
             }
             
-            
-            
             VStack(spacing: 0){
-                
-                // Заголовок H1
+
                 Text("Your current weight")
                   .font(
                     Fonts.black.size(32)
-                     
                   )
                   .multilineTextAlignment(.center)
                   .foregroundColor(.white)
-                //  .frame(height: 64)
                   .padding(.horizontal, 73)
                   .padding(.bottom, 10)
                   .padding(.top, 65)
-                
-                // ЗАголовок Н5
+            
                 Text("Set your today's weight to record your progress")
                   .font(Fonts.regular.size(16))
                   .multilineTextAlignment(.center)
@@ -82,81 +73,37 @@ struct WeightPickerView: View {
                 HStack(spacing: 0) {
                     Text(weight)
                         .onChange(of: weight, { oldValue, newValue in
+                           
+            planProfile.currentWeight = Double(newValue)!
+                            
+                            currentWeight = Double(newValue)!
                             AudioServicesPlayAlertSound(kSystemSoundID_Vibrate)
                             AudioServicesPlayAlertSound(1157)
 
                         })
                       .font(
                         Fonts.black.size(64)
-                          
                       )
                       .foregroundColor(.white)
-                     
-                    // ЗАголовок Н5
+                    
                     Text("kg")
                       .font(Fonts.regular.size( 16))
                       .multilineTextAlignment(.center)
                       .foregroundColor(.white)
                       .offset(y:18)
-                    
-               
+ 
                 } 
-//                .onAppear{
-//                    
-//                    if offset == 0 {
-//                        offset = 200
-//                    }
-//                }
+
                 .padding(.horizontal, 15)
                 
-                CustomSlider(pickerCount: 3, offset: $offset) {
-                    let pickerCOunt = 4
-                    HStack(spacing: 0) {
-                        
-                        ForEach(1...pickerCOunt, id: \.self) {
-                            index in
-                            Rectangle()
-                                .fill(.white)
-                                .frame(width: 1, height: 96)
-                                .frame(width: 20)
-                            
-                            
-                            ForEach(1...4, id: \.self) {
-                                index in
-                                Rectangle()
-                                    .fill(.white)
-                                    .frame(width: 1, height: 57)
-                                    .frame(width: 20)
-                                    .padding(.top, 20)
-                            }
-                            
-                            
-                        }
-                        
-                        Rectangle()
-                            .fill(.white)
-                            .frame(width: 1, height: 96)
-                            .frame(width: 20)
-                        
-                    }
-                    
-                    
-                    
+                CustomSlider(pickerCount: 3, offset: $offset){
+                    PickerLines()
                 }
-              //  .content.offset(CGSize(width: 100, height: 0))
                 .overlay {
-                    
-                
-                    
-                        
-                    
-                    
                     Rectangle()
                         .fill(.white)
                         .frame(width: 2, height: 180)
                         .frame(width: 20)
-                   
-                    
                 }
                 .frame(height: 100)
                 .padding()
@@ -173,31 +120,42 @@ struct WeightPickerView: View {
                       .foregroundColor(Color(red: 0.09, green: 0.09, blue: 0.09))
                       .background(RoundedRectangle(cornerRadius: 15).fill(.white).frame(width: 225, height: 48))
                 }
-
-        
-                
             }
-            
         }
-    }
-   
-   
-    func getWeeight()-> String {
-        
-        let startWeight = 74.0
-        
-       
-        
-        let progress = offset / 20
-        print (offset)
-        let result = startWeight + (Double(progress) * 0.1)
-        let roundedResult = (result * 10).rounded() / 10
-    
-        
-        return String(format: "%.1f", roundedResult)
     }
 }
 
 #Preview {
-    WeightPickerView(isSheetVisible: .constant(false))
+    WeightPickerView(planProfile: (PlanProfile(start: 75, goal: 70, current: 74.4)), isSheetVisible: .constant(false))
+}
+
+struct PickerLines: View {
+    var body: some View {
+        
+            let pickerCount = 4
+            HStack(spacing: 0) {
+                
+                ForEach(1...pickerCount, id: \.self) {
+                    index in
+                    Rectangle()
+                        .fill(.white)
+                        .frame(width: 1, height: 96)
+                        .frame(width: 20)
+                    
+                    ForEach(1...4, id: \.self) {
+                        index in
+                        Rectangle()
+                            .fill(.white)
+                            .frame(width: 1, height: 57)
+                            .frame(width: 20)
+                            .padding(.top, 20)
+                    }
+                }
+                
+                Rectangle()
+                    .fill(.white)
+                    .frame(width: 1, height: 96)
+                    .frame(width: 20)
+            }
+        }
 }

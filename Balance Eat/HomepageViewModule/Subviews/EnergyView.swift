@@ -8,6 +8,11 @@
 import SwiftUI
 
 struct EnergyView: View {
+    
+    @Binding var proteinPercentage: Double
+    @Binding var carbsPercentage: Double
+    @Binding var fatsPercentage: Double
+    
     var body: some View {
         HStack(spacing:  61){
             VStack(alignment: .leading, spacing: 32){
@@ -21,20 +26,20 @@ struct EnergyView: View {
                 
                 VStack(alignment: .leading){
                     
-                    NutritionCellView(color: .blue, text: "Protein")
-                    NutritionCellView(color: .red, text: "Fat")
-                    NutritionCellView(color: .yellow, text: "Carb")
+                    NutritionCellView(color: .blue, text: "Protein", percent: proteinPercentage)
+                    NutritionCellView(color: .red, text: "Fat", percent: fatsPercentage)
+                    NutritionCellView(color: .yellow, text: "Carb", percent: carbsPercentage)
                 }
                 
             }
-            MultipleRings(largestHeight: 113)
+            MultipleRings(largestHeight: 113,proteinPercentage: $proteinPercentage, carbsPercentage: $carbsPercentage, fatsPercentage: $fatsPercentage)
         }.padding(16)
             .background(.white)
             
             .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
-
-#Preview {
-    EnergyView()
-}
+//
+//#Preview {
+//    EnergyView(proteinPercent: 24, carbPercent: 22, fatsPercent: 30)
+//}

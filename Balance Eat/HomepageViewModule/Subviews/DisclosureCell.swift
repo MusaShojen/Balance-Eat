@@ -7,42 +7,57 @@
 
 import SwiftUI
 
+struct Product: Hashable, Identifiable {
+    let id: UUID = UUID()
+    let name: String
+    var energy: Int {
+        let result = (protein * 4) + (carbs * 4) + (fats * 9)
+        return result
+    }
+    let protein: Int
+    let carbs: Int
+    let fats: Int
+}
+
 
 struct DisclosureCell: View {
-    
-    @State private var selectedProducts: Set<String> = []
     @State var exp: Bool = false
     @State var isAllSelected: Bool = false
-    
-    var allProducts: Set<String> {
+    @Binding var consumed : Set<Product>
+    @EnvironmentObject var viewModel : HomePageViewModel
+    var mealTime: String
+    var allProducts: Set<Product> {
         
         return Set(products)
     }
     
-    let products = ["Каша","Суп","Морковь"]
+    let products : [Product]
     var body: some View {
         
         DisclosureGroup(isExpanded: $exp) {
             VStack(alignment: .leading){
-                ForEach(products, id: \.self) {
+                ForEach(products) {
                     product in
                     
                     HStack {
-                        Text(product)
+                        Text(product.name)
                             .font(Fonts.regular.size(13))
                             .foregroundColor(Color(red: 0.34, green: 0.34, blue: 0.34))
                         Spacer()
-                        Image(systemName:selectedProducts.contains(product) ? "circle.fill" : "circle")
+                        Image(systemName:consumed.contains(product) ? "circle.fill" : "circle")
                             .resizable()
                             .scaledToFit()
                             .frame(width: 12, height: 12)
                             .foregroundColor((Color(red: 0.12, green: 0.85, blue: 0.89)))
                             .padding(.trailing, 16)
                             .onTapGesture {
-                                if selectedProducts.contains(product) {
-                                    selectedProducts.remove(product)
+                                
+                                
+                                if consumed.contains(product) {
+                                    consumed.remove(product)
+                                    
                                 } else {
-                                    selectedProducts.insert(product)
+                                    consumed.insert(product)
                                 }
                                 updateIsAllSelected()
                                 
@@ -53,9 +68,6 @@ struct DisclosureCell: View {
                     
                 }
                 
-                
-                
-                
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(.top, 15)
@@ -63,11 +75,10 @@ struct DisclosureCell: View {
         } label: {
             HStack(spacing: 6){
                 Image(systemName:"chevron.down")
-                //    .resizable()
-                    .scaledToFit()
+
                     .frame(width: 10, height: 17).tint(.black)
                     .rotationEffect(Angle(degrees: exp ? -180 : 0))
-                Text("Breakfast")
+                Text(mealTime)
                     .font(Fonts.regular.size(16))
                     .frame(height: 16)
                     .foregroundColor(Color(red: 0.09, green: 0.09, blue: 0.09))
@@ -77,10 +88,12 @@ struct DisclosureCell: View {
                     
                     isAllSelected.toggle()
                     if isAllSelected {
-                        selectedProducts = allProducts
+                        allProducts.forEach { consumed.insert($0) }
                     } else {
-                        selectedProducts.removeAll()
+                        allProducts.forEach { consumed.remove($0) }
                     }
+                    
+                    updateIsAllSelected()
                     
                 } label: {
                     ZStack{
@@ -113,19 +126,27 @@ struct DisclosureCell: View {
         
     }
     
-   
+    
     func updateIsAllSelected() {
-        isAllSelected = selectedProducts == allProducts
+        isAllSelected = consumed.isSuperset(of: allProducts)
+        
+        viewModel.calculatePercentage()
+       
+        print(consumed.count)
+        
     }
     
-  
+    
     
 }
 
 
 
-#Preview{
-    
-    DisclosureCell()
-    
-}
+//#Preview{
+//    
+//    DisclosureCell(products: ProductMock.shared.products)
+//    
+//}
+
+
+

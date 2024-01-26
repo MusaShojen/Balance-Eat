@@ -7,14 +7,30 @@
 
 import SwiftUI
 
-struct SummaryView: View {
+struct CurrentWeightView: View {
     
-    @State var progress: CGFloat = 0.5
+    var progress: Double {
+        return ((planProfile.shownCurrentWeight - planProfile.startWeight) / (planProfile.goalWeight - planProfile.startWeight)) * 100
+    }
+    @ObservedObject var planProfile: PlanProfile
+    
+    //weekDays precent needs to depend on previous results of consumed energy
+    let weekDays: [(String, Double)] = [
+        ("mon", 60.0),
+        ("tue", 90.0),
+        ("wed", 0.0),
+        ("thu", 0.0),
+        ("fri", 0.0),
+        ("sat", 0.0),
+        ("sun", 0.0)
+    ]
+    
+    
     var body: some View {
         
-  
+        
         VStack(spacing: 34){
-             
+            
             HStack {
                 
                 VStack(alignment: .leading ,spacing: 32){
@@ -26,17 +42,13 @@ struct SummaryView: View {
                             .foregroundColor(Color(red: 0.09, green: 0.09, blue: 0.09))
                             .frame(height: 20)
                         
-                        
-                        Text("74,4 kg")
+                        Text("\(String(format: "%.1f", planProfile.currentWeight != 0 ? planProfile.currentWeight : planProfile.shownCurrentWeight)) kg")
                             .font(
                                 Fonts.black.size(32)
-                                 
                             )
                             .foregroundColor(Color(red: 0.09, green: 0.09, blue: 0.09))
                             .frame(height: 32)
                     }
-                    
-                    
                     HStack(spacing: 35) {
                         VStack(alignment: .leading, spacing: 5){
                             
@@ -46,21 +58,20 @@ struct SummaryView: View {
                                 .frame(height: 18)
                             
                             
-                            Text("75 kg")
+                            Text("\(String(format: "%.1f", planProfile.startWeight)) kg")
                                 .font(Fonts.regular.size(20))
                                 .foregroundColor(Color(red: 0.34, green: 0.34, blue: 0.34))
                                 .frame(height: 18)
                             
                         }
                         VStack(alignment: .leading, spacing: 5){
-                            // Заголовок Н4
+                            
                             Text("Goal")
                                 .font(Fonts.regular.size(20))
                                 .foregroundColor(.black)
                                 .frame(height: 18)
                             
-                            // Заголовок Н4
-                            Text("70 kg")
+                            Text("\(String(format: "%.1f", planProfile.goalWeight)) kg")
                                 .font(Fonts.regular.size(20))
                                 .foregroundColor(Color(red: 0.34, green: 0.34, blue: 0.34))
                                 .frame(height: 18)
@@ -73,84 +84,74 @@ struct SummaryView: View {
                 
                 Spacer()
                 
-                
-                Ring(lineWidth: 30, backgroundColor: Color.background, foregroundColor: Color.blue, percent: 50)
+                Ring(lineWidth: 30, backgroundColor: Color.background, foregroundColor: Color.blue, percent: progress)
                     .frame(width: 130, height: 130)
-                
-                
-                
-                
             }
             
             
             HStack(spacing: 8){
                 
-                
-                
-                ForEach(0..<7) { _ in
+                ForEach(weekDays, id: \.0) { day, completionPercent in
                     
-                    VStack(spacing: 1){
-                        
-                        
-                        Text("70kg")
-                          .font(Fonts.regular.size(10))
-                          .multilineTextAlignment(.trailing)
-                          .foregroundColor(Color(red: 0.34, green: 0.34, blue: 0.34))
-                          .frame(height: 12)
-                          .padding(.bottom, 1)
-                        
-                        Rectangle()
-                            .foregroundColor(.clear)
-                            .frame(width: 40, height: 60)
-                            .background(Color(red: 0.98, green: 0.97, blue: 0.97))
-                            .cornerRadius(10)
-                            
-                        
-                        // ЗАголовок Н5
-                        Text("mon")
-                          .font(Fonts.regular.size(16))
-                          .foregroundColor(Color(red: 0.34, green: 0.34, blue: 0.34))
-                          .frame(height: 16)
-                        
-                    }
-                  
+                    WeekDay(completionPercent: completionPercent, day: day)
                     
                 }
-             
-                
-              
                 
             }
             
-          
-            
-        
-            
-            
-            
-            
-            
-            }
+        }
         .padding(.horizontal, 16)
         .padding(.top, 16)
         .padding(.bottom, 14)
-
-            .background(.white)
-            
-            .clipShape(RoundedRectangle(cornerRadius: 10))
-        //    .padding(.horizontal, 16)
-          
-           
-                
-                
-                
-              
-            
-        }
+        .background(.white)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
+        
         
     }
     
+}
 
-#Preview {
-    SummaryView()
+
+
+//MARK: WeekDayView
+
+
+struct WeekDay: View {
+    var completionPercent : Double
+    let day: String
+    
+    var body: some View {
+        VStack(spacing: 1){
+            
+            
+            Text("70kg")
+                .font(Fonts.regular.size(10))
+                .multilineTextAlignment(.trailing)
+                .foregroundColor(Color(red: 0.34, green: 0.34, blue: 0.34))
+                .frame(height: 12)
+                .padding(.bottom, 1)
+            ZStack {
+                
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(width: 40, height: 60)
+                    .background(Color.background)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                
+                Rectangle()
+                    .foregroundColor(.clear)
+                    .frame(width: 40, height: 60)
+                    .background(.blue)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .scaleEffect(x: 1, y: CGFloat(completionPercent/100), anchor: .bottom)
+                
+            }
+            
+            Text(day)
+                .font(Fonts.regular.size(16))
+                .foregroundColor(Color(red: 0.34, green: 0.34, blue: 0.34))
+                .frame(height: 16)
+            
+        }
+    }
 }

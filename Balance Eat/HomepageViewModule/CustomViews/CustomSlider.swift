@@ -13,8 +13,6 @@ struct CustomSlider<Content: View>: UIViewRepresentable {
     func makeCoordinator() -> Coordinator {
         return CustomSlider.Coordinator(parent: self)
     }
-    
-    
     var content : Content
     
     @Binding var offset: CGFloat
@@ -89,11 +87,6 @@ struct CustomSlider<Content: View>: UIViewRepresentable {
     
 
  }
-
-//
-//#Preview {
-//    WeightPickerView()
-//}
 
 
 func getRect () -> CGRect {

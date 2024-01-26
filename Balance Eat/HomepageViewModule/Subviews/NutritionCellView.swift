@@ -10,6 +10,7 @@ import SwiftUI
 struct NutritionCellView: View {
     let color : Color
     let text: String
+    let percent: Double
     
     var body: some View {
         HStack (spacing: 5){
@@ -24,7 +25,7 @@ struct NutritionCellView: View {
               Spacer()
             
             // ЗАголовок Н5
-            Text("70%")
+            Text("\(Int(percent.rounded())) %")
                 .frame(height: 16)
                 .font(Fonts.regular.size(16))
                 .foregroundColor(Color(red: 0.34, green: 0.34, blue: 0.34))
@@ -34,5 +35,5 @@ struct NutritionCellView: View {
 }
 
 #Preview {
-    NutritionCellView(color: .blue, text: "Carb")
+    NutritionCellView(color: .blue, text: "Carb", percent: 25)
 }

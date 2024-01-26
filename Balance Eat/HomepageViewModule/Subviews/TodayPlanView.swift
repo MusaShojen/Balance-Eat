@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TodayPlanView: View {
+    @Binding var consumed : Set<Product>
+    let products: ProductMock
+    
     var body: some View {
       
         VStack(alignment: .leading, spacing: 31){
@@ -17,7 +20,7 @@ struct TodayPlanView: View {
                 .frame(height: 18, alignment: .topLeading)
                 .padding(.leading, 16)
                 .padding(.top, 16)
-            Meals()
+            Meals(consumed: $consumed, products: products)
                 .padding(.bottom, 18)
         }
         
@@ -27,6 +30,3 @@ struct TodayPlanView: View {
     }
 }
 
-#Preview {
-    TodayPlanView()
-}
